@@ -1,6 +1,5 @@
 .DS_Store
 target/
-_minted-*/
 *.idx
 *.ilg
 *.ind
