@@ -1,6 +1,6 @@
 [![latexmk](https://github.com/h1alexbel/micro-23/actions/workflows/latexmk.yml/badge.svg)](https://github.com/h1alexbel/micro-23/actions/workflows/latexmk.yml)
 [![We recommend IntelliJ IDEA](https://www.elegantobjects.org/intellij-idea.svg)](https://www.jetbrains.com/idea/)
-[![Hits-of-Code](https://hitsofcode.com/github/h1alexbel/meetup-slides)](https://hitsofcode.com/view/github/h1alexbel/meetup-slides)
+[![Hits-of-Code](https://hitsofcode.com/github/h1alexbel/micro-23)](https://hitsofcode.com/view/github/h1alexbel/micro-23)
 
 There are slides for lectures about Microservices course.
 
