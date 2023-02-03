@@ -1,13 +1,85 @@
+% (The MIT License)
+%
+% Copyright (c) 2023 Aliaksei Bialiauski
+%
+% Permission is hereby granted, free of charge, to any person obtaining a copy
+% of this software and associated documentation files (the 'Software'), to deal
+% in the Software without restriction, including without limitation the rights
+% to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+% copies of the Software, and to permit persons to whom the Software is
+% furnished to do so, subject to the following conditions:
+%
+% The above copyright notice and this permission notice shall be included in all
+% copies or substantial portions of the Software.
+%
+% THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+% IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+% FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+% AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+% LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+% OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+% SOFTWARE.
 
-% Preamble
-\documentclass[11pt]{article}
-
-% Packages
-\usepackage{amsmath}
-
-% Document
+\documentclass[nobrand,anonymous,nodate,nosecurity]{../solvd}
+\usepackage{multicol}
+\usepackage{href-ul}
+\usepackage{ffcode}
 \begin{document}
 
-test
+{
+    \sffamily{\bfseries\Large Microserivces and beyoynd}\\
+    Lectures about microservices by \href{h1alexbel.github.io/about-me.html}{Aliaksei Bialiauski}
 
+    \begin{abstract}
+        This is a series of lectures related to microservices development.
+        The lectures provide basics and includes practical best practices for each topic.
+    \end{abstract}
+
+    \textbf{Prerequisites} (it is expected that listener knows this):
+    \begin{itemize}
+        \item Spring Framework
+        \item PostgreSQL
+        \item Containerization and Docker
+    \end{itemize}
+
+    \section*{Course Structure}
+    \begin{itemize}
+        \item API size, database-per service
+        \item Service discovery
+        \item Gateways
+        \item Load balancing
+        \item Communication: sync vs async
+        \item Messaging
+        \item Data formats: XML, JSON, protobuf, etc.
+        \item Saga, Event sourcing, CQRS
+        \item NoSQL
+        \item Caching
+        \item Rate-limiting
+        \item Load shedding
+        \item Circuit breaker
+        \item Infrastructure, autoscaling
+    \end{itemize}
+    Toolset we are going to use:
+    \begin{itemize}
+        \item \href{k8s.io}{K8s}
+        \item \href{kafka.org}{Kafka}
+        \item \href{redis.com}{Redis}
+        \item \href{mongo.com}{MongoDB}
+        \item \href{reactor.org}{Spring Reactive}
+        \item \href{terraform.io}{Terraform}
+    \end{itemize}
+    \newpage
+    \textbf{Application we are going to build}:
+    \href{https://peopleforce.io}{Peopleforce} analogue for Resource managers and Project managers in the \href{https://solvd.com}{Solvd} company
+    \\
+    and use:
+    \begin{itemize}
+        \item Saga
+        \item Message broker
+        \item NIO
+        \item External cache
+        \item L7 and L4 load balancing
+        \item Service mesh
+        \item DevOps practices
+    \end{itemize}
 \end{document}
