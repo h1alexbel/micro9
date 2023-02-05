@@ -1,0 +1,101 @@
+% MIT License
+%
+% Copyright (c) 2023 Aliaksei Bialiauski
+%
+% Permission is hereby granted, free of charge, to any person obtaining a copy
+% of this software and associated documentation files (the "Software"), to deal
+% in the Software without restriction, including without limitation the rights
+% to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+% copies of the Software, and to permit persons to whom the Software is
+% furnished to do so, subject to the following conditions:
+%
+% The above copyright notice and this permission notice shall be included in all
+% copies or substantial portions of the Software.
+%
+% THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+% IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+% FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+% AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+% LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+% OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+% SOFTWARE.
+
+\documentclass{article}
+\usepackage{..//cover}
+\usepackage{..//slides}
+\usepackage{..//inno}
+\usepackage[normalem]{ulem}
+\newcommand*\thetitle{Microservices/}
+\newcommand*\thesubtitle{Intro \& SOA}
+\begin{document}
+
+    \plush{\defaultInnoTitlePage \innoDisclaimer}
+
+    \innoToc
+
+    \plush{\innoChapter[SOA]{Service-Oriented Architecture (SOA)}}
+
+    \plush[5]{%
+        \innoSection{Long time ago}
+        \small
+        ``? . "
+    }
+
+    \plush[3]{\innoPic{0.9}{soa}}
+
+    \subcrumbection{Microservices}
+    \plush[5]{%
+        \innoSection{Microservices}
+        \innoPic{0.6}{microservices}\par
+        \small
+        ``Microservices are a modern interpretation of service-oriented
+        architectures used to build distributed software systems." --- Wikipedia
+    }
+
+    \subcrumbection{API size}
+    \plush[]{%
+        \innoSection{API size}
+        \innoPic{0.7}{github}
+        \innoPic{0.7}{yt}
+    }
+
+    \plush{\innoChapter[CAP]{CAP theorem}}
+
+    \subcrumbection{Consistency}
+    \plush[4]{%
+        \innoSection{Consistency}
+        \innoPic{0.7}{consistency}
+    }
+
+    \subcrumbection{Availability}
+    \plush[4]{%
+        \innoSection{Availability}
+        \innoPic{0.7}{availability}
+    }
+
+    \subcrumbection{Network Partition}
+    \plush[4]{%
+        \innoSection{Partition tolerance}
+        \innoPic{0.7}{partition}
+    }
+
+    \plush{\innoChapter[Containers]{Containers}}
+
+    \subcrumbection{Docker}
+    \plush[4]{%
+        \innoSection[Docker]{Docker}
+        \innoPic{0.7}{container}
+    }
+
+    \subcrumbection{K8s}
+    \plush[4]{%
+        \innoSection[K8s]{Kubernetes}
+        \innoPic{0.7}{kubernetes}
+    }
+
+    \subcrumbection{SVC Mesh}
+    \plush[4]{%
+        \innoSection[Service Mesh]{Service Mesh}
+        \innoPic{0.7}{svc-mesh}
+    }
+\end{document}
