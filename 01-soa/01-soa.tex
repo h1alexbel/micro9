@@ -35,28 +35,32 @@
 
     \plush{\innoChapter[SOA]{Service-Oriented Architecture (SOA)}}
 
+    \subcrumbection{Microservices}
     \plush[5]{%
         \innoSection{Long time ago}
-        \small
-        ``? . "
+        \innoPic{0.9}{soa}
     }
 
-    \plush[3]{\innoPic{0.9}{soa}}
-
-    \subcrumbection{Microservices}
     \plush[5]{%
         \innoSection{Microservices}
         \innoPic{0.6}{microservices}\par
         \small
-        ``Microservices are a modern interpretation of service-oriented
-        architectures used to build distributed software systems." --- Wikipedia
+        Microservices are a modern interpretation of service-oriented
+        architectures used to build distributed software systems. --- Wikipedia
     }
 
-    \subcrumbection{API size}
+    \subcrumbection{API}
     \plush[]{%
         \innoSection{API size}
-        \innoPic{0.7}{github}
-        \innoPic{0.7}{yt}
+        GitHub RESTful API
+        \\
+        YouTube
+    }
+
+    \plush[5]{%
+        \innoBanner{Stateless vs. Stateful Architecture}
+        ``A stateless process or application can be understood in isolation. There is no stored knowledge of or reference to past transactions. Each transaction is made as if from scratch for the first time.'' ---
+        \href{https://www.redhat.com/en/topics/cloud-native-apps/stateful-vs-stateless}{RedHat}
     }
 
     \plush{\innoChapter[CAP]{CAP theorem}}
@@ -64,38 +68,51 @@
     \subcrumbection{Consistency}
     \plush[4]{%
         \innoSection{Consistency}
-        \innoPic{0.7}{consistency}
+        \textbf{ACID vs BASE}
+        \\
+        \small
+        Consistency model - rules that define the order of updates in the system and when these updates become visible to users. --- Wikipedia
     }
 
     \subcrumbection{Availability}
     \plush[4]{%
         \innoSection{Availability}
-        \innoPic{0.7}{availability}
+        \innolick{$A = \dfrac{E_\text{up}}{E_\text{down} + E_\text{up}}$}
+        \\
+        \\
+        Goal: minimize downtime
+        \\
+        98\% 99\% 100\%
+        \\
+        it is not about a number
+        \\
+        it is about architecture(static) and process(dynamic)
     }
 
     \subcrumbection{Network Partition}
     \plush[4]{%
         \innoSection{Partition tolerance}
-        \innoPic{0.7}{partition}
+        \small
+        Partition tolerance, in the CAP context, means the ability of a data processing system to continue processing data even if a network partition causes communication errors between subsystems.
     }
 
     \plush{\innoChapter[Containers]{Containers}}
 
     \subcrumbection{Docker}
     \plush[4]{%
-        \innoSection[Docker]{Docker}
-        \innoPic{0.7}{container}
+        \innoSection{Docker}
+        \innoPic{0.7}{dockerfile}
     }
 
     \subcrumbection{K8s}
     \plush[4]{%
-        \innoSection[K8s]{Kubernetes}
+        \innoSection{Kubernetes}
         \innoPic{0.7}{kubernetes}
     }
 
     \subcrumbection{SVC Mesh}
     \plush[4]{%
-        \innoSection[Service Mesh]{Service Mesh}
-        \innoPic{0.7}{svc-mesh}
+        \innoSection{Service Mesh}
+        \innoPic{0.7}{mesh}
     }
 \end{document}
