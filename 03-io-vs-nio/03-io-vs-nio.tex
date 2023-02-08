@@ -1,0 +1,255 @@
+% MIT License
+%
+% Copyright (c) 2023 Aliaksei Bialiauski
+%
+% Permission is hereby granted, free of charge, to any person obtaining a copy
+% of this software and associated documentation files (the "Software"), to deal
+% in the Software without restriction, including without limitation the rights
+% to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+% copies of the Software, and to permit persons to whom the Software is
+% furnished to do so, subject to the following conditions:
+%
+% The above copyright notice and this permission notice shall be included in all
+% copies or substantial portions of the Software.
+%
+% THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+% IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+% FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+% AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+% LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+% OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+% SOFTWARE.
+
+\documentclass{article}
+\usepackage{..//cover}
+\usepackage{..//slides}
+\usepackage{..//inno}
+\usepackage[normalem]{ulem}
+\newcommand*\thetitle{IO}
+\newcommand*\thesubtitle{vs. NIO}
+\begin{document}
+
+    \plush{\defaultInnoTitlePage \innoDisclaimer}
+
+    \innoToc
+
+    \plush{\innoChapter[Threads]{Thread Management}}
+
+    \subcrumbection{Socket}
+    \plush[5]{%
+        \innoSection{Socket}
+        \innoPic{0.8}{socket}
+    }
+
+    \plush[5]{%
+        \innoSection{blocking socket vs. non-blocking socket}
+        \begin{innoWide}{2}
+            \small
+            \innoBanner{blocking}
+            thread is suspended until read/write from/to socket completes
+            \par\columnbreak
+            \innoBanner{non-blocking}
+            thread reads data available in the socket buffer and does not wait for the remaining data to arrive
+        \end{innoWide}
+    }
+
+    \subcrumbection{Connection}
+    \plush[5]{%
+        \innoSection{Thread per connection}
+        \innoPic{0.8}{connection}
+    }
+
+    \subcrumbection{Rq}
+    \plush[5]{%
+        \innoSection{Thread per request}
+        \innoPic{0.8}{rq}\par
+        \url{https://tomcat.apache.org}
+    }
+
+    \subcrumbection{Loop}
+    \plush[5]{%
+        \innoSection{Event Loop}
+        \innoPic{0.8}{loop}\par
+        \url{https://netty.io}
+    }
+
+    \subcrumbection{CPU}
+    \plush[5]{%
+        \innoSection{Concurrency vs. Parallelism}
+        \small
+        At any given time 1 CPU can run only thread. Parallel execution happens when we have multiple CPUs.
+    }
+
+    \plush[5]{%
+        \innoBanner{IO vs. CPU bounds}
+        Event loop is good for IO-bound workload (e.g. large files).\par
+        Thread per request is good for CPU-bound workload.
+    }
+
+    \plush{\innoChapter[Sync]{Synchronous communication}}
+    \subcrumbection{REST}
+    \plush[5]{%
+        \innoSection{REST communication}
+        \innoSnippet[\scriptsize]{RestExample.java}
+    }
+
+    \subcrumbection{Feign}
+    \plush[5]{%
+        \innoSection{Open Feign - Declarative REST Client}
+        \innoSnippet[\scriptsize]{StoreClient.java}
+        \url{https://docs.spring.io/spring-cloud-openfeign/docs/current/reference/html/}
+    }
+
+    \subcrumbection{GraphQL}
+    \plush[5]{%
+        \innoSection{GraphQL}
+        \innoPic{0.8}{graphql-vs-rest}
+    }
+
+    \plush[5]{%
+        \innoBanner{GraphQL Schema}
+        \innoSnippet[\scriptsize]{schema.graphqls}
+    }
+
+    \plush[5]{%
+        \innoBanner{GraphQL Query}
+        \innoSnippet[\scriptsize]{query.graphql}
+    }
+
+    \plush[5]{%
+        \innoBanner{GraphQL Mutation}
+        \innoSnippet[\scriptsize]{mutation.graphql}
+    }
+
+    \plush[5]{%
+        \innoBanner{Spring Controllers}
+        \innoSnippet[\scriptsize]{PostController.java}
+    }
+
+    \plush{%
+        \url{https://graphql.org/learn/}
+    }
+
+    \plush{\innoChapter[Streams]{Reactive Streams}}
+
+    \subcrumbection{Manifesto}
+    \plush[5]{%
+        \innoSection{Reactive Manifesto}
+        \innoPic{0.7}{manifesto}\par
+        \url{https://www.reactivemanifesto.org}
+    }
+
+    \subcrumbection{Back}
+    \plush{%
+        \innoSection{Backpressure}
+        \small
+        In Reactive Streams, backpressure also defines how to regulate the transmission of stream elements.\par
+        \innoPic{0.7}{backpressure}
+    }
+
+    \subcrumbection{Spec}
+    \plush{%
+        \innoSection{Reactive Streams}
+        \small
+        ``Reactive Streams is an initiative to provide a standard for asynchronous stream processing with non-blocking back pressure. This encompasses efforts aimed at runtime environments (JVM and JavaScript) as well as network protocols.''\par
+        --- \href{https://www.reactive-streams.org}{Reactive Streams website}
+    }
+
+    \plush{%
+        \innoBanner{Publisher}
+        \innoSnippet[\scriptsize]{Publisher.java}
+    }
+
+    \plush{%
+        \innoBanner{Subscriber}
+        \innoSnippet[\scriptsize]{Subscriber.java}
+    }
+
+    \plush{%
+        \innoBanner{Subscription}
+        \innoSnippet[\scriptsize]{Subscription.java}
+    }
+
+    \plush{%
+        \innoBanner{Processor}
+        \innoSnippet[\scriptsize]{Processor.java}
+    }
+
+    \plush{%
+        \innoBanner{Pub-Sub Flow}
+        \innoPic{0.8}{reactive-streams-flow}
+    }
+
+    \plush{%
+        \innoBanner{Implementations}
+        \url{https://github.com/ReactiveX/RxJava}\par
+        \url{https://github.com/eclipse-vertx/vert.x}\par
+        \url{https://github.com/smallrye/smallrye-mutiny}\par
+        \url{https://github.com/reactor/reactor-core}
+    }
+
+    \plush{\innoChapter[Reactor]{Project Reactor}}
+    \subcrumbection{Reactor}
+    \plush[5]{%
+        \innoSection{Project Reactor}
+        \small
+        ``Well-suited for a microservices architecture, Reactor offers backpressure-ready network engines for HTTP (including Websockets), TCP, and UDP.''\par
+        ``Reactor offers two reactive and composable APIs, contains 2 publishers: Flux [N] and Mono [0|1], which extensively implement Reactive Extensions.''\par
+        --- \href{https://projectreactor.io}{Reactor website}
+    }
+
+    \subcrumbection{Mono}
+    \plush[5]{%
+        \innoBanner{Mono, publisher with asynchronous 0--1 result.}
+        \innoPic{0.8}{mono}
+    }
+
+    \plush{%
+        \innoSnippet[\scriptsize]{MonoExample.java}
+    }
+
+    \subcrumbection{Flux}
+    \plush[5]{%
+        \innoBanner{Flux, publisher with asynchronous sequence of 0--N items.}
+        \innoPic{0.8}{flux}
+    }
+
+    \plush{%
+        \innoSnippet[\scriptsize]{FluxExample.java}
+    }
+
+    \subcrumbection{Virtues}
+    \plush{%
+        \innoSection{Immutability}
+        \innoSnippet[\scriptsize]{ImmutabilityExample.java}
+    }
+
+    \plush{%
+        \innoSection{Declarativity}
+    }
+
+    \subcrumbection{Other}
+    \plush{%
+        \innoBanner{Other reactor projects}
+        \url{https://github.com/reactor/reactor-kafka}\par
+        \url{https://github.com/reactor/reactor-netty}\par
+    }
+
+    \subcrumbection{Spring}
+    \plush[5]{%
+        \innoSection{Spring Reactive}
+        Spring supports reactive programming using Project Reactor.\par
+        Servlet Web -> Reactive Web\par
+        JDBC -> R2DBC\par
+        Imperative -> Declarative
+    }
+
+    \plush[5]{%
+        \innoSnippet[\scriptsize]{UserRepository.java}
+        \innoSnippet[\scriptsize]{Users.java}
+    }
+
+    \plush{%
+        \innoSnippet[\scriptsize]{UserRoutes.java}
+    }
+\end{document}
