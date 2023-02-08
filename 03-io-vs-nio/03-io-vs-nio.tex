@@ -130,7 +130,7 @@
         \url{https://graphql.org/learn/}
     }
 
-    \plush{\innoChapter[Reactive]{Reactive programming}}
+    \plush{\innoChapter[Streams]{Reactive Streams}}
 
     \subcrumbection{Manifesto}
     \plush[5]{%
@@ -139,29 +139,117 @@
         \url{https://www.reactivemanifesto.org}
     }
 
-    \plush[5]{%
-        \innoBanner{Responsive}
+    \subcrumbection{Back}
+    \plush{%
+        \innoSection{Backpressure}
+        \small
+        In Reactive Streams, backpressure also defines how to regulate the transmission of stream elements.\par
+        \innoPic{0.7}{backpressure}
     }
 
-    \plush[5]{%
-        \innoBanner{Elastic}
+    \subcrumbection{Spec}
+    \plush{%
+        \innoSection{Reactive Streams}
+        \small
+        ``Reactive Streams is an initiative to provide a standard for asynchronous stream processing with non-blocking back pressure. This encompasses efforts aimed at runtime environments (JVM and JavaScript) as well as network protocols.''\par
+        --- \href{https://www.reactive-streams.org}{Reactive Streams website}
     }
 
-    \plush[5]{%
-        \innoBanner{Resilient}
+    \plush{%
+        \innoBanner{Publisher}
+        \innoSnippet[\scriptsize]{Publisher.java}
     }
 
-    \plush[5]{%
-        \innoBanner{Message Driven}
+    \plush{%
+        \innoBanner{Subscriber}
+        \innoSnippet[\scriptsize]{Subscriber.java}
     }
 
+    \plush{%
+        \innoBanner{Subscription}
+        \innoSnippet[\scriptsize]{Subscription.java}
+    }
+
+    \plush{%
+        \innoBanner{Processor}
+        \innoSnippet[\scriptsize]{Processor.java}
+    }
+
+    \plush{%
+        \innoBanner{Pub-Sub Flow}
+        \innoPic{0.8}{reactive-streams-flow}
+    }
+
+    \plush{%
+        \innoBanner{Implementations}
+        \url{https://github.com/ReactiveX/RxJava}\par
+        \url{https://github.com/eclipse-vertx/vert.x}\par
+        \url{https://github.com/smallrye/smallrye-mutiny}\par
+        \url{https://github.com/reactor/reactor-core}
+    }
+
+    \plush{\innoChapter[Reactor]{Project Reactor}}
     \subcrumbection{Reactor}
     \plush[5]{%
         \innoSection{Project Reactor}
+        \small
+        ``Well-suited for a microservices architecture, Reactor offers backpressure-ready network engines for HTTP (including Websockets), TCP, and UDP.''\par
+        ``Reactor offers two reactive and composable APIs, contains 2 publishers: Flux [N] and Mono [0|1], which extensively implement Reactive Extensions.''\par
+        --- \href{https://projectreactor.io}{Reactor website}
+    }
+
+    \subcrumbection{Mono}
+    \plush[5]{%
+        \innoBanner{Mono, publisher with asynchronous 0--1 result.}
+        \innoPic{0.8}{mono}
+    }
+
+    \plush{%
+        \innoSnippet[\scriptsize]{MonoExample.java}
+    }
+
+    \subcrumbection{Flux}
+    \plush[5]{%
+        \innoBanner{Flux, publisher with asynchronous sequence of 0--N items.}
+        \innoPic{0.8}{flux}
+    }
+
+    \plush{%
+        \innoSnippet[\scriptsize]{FluxExample.java}
+    }
+
+    \subcrumbection{Virtues}
+    \plush{%
+        \innoSection{Immutability}
+        \innoSnippet[\scriptsize]{ImmutabilityExample.java}
+    }
+
+    \plush{%
+        \innoSection{Declarativity}
+    }
+
+    \subcrumbection{Other}
+    \plush{%
+        \innoBanner{Other reactor projects}
+        \url{https://github.com/reactor/reactor-kafka}\par
+        \url{https://github.com/reactor/reactor-netty}\par
     }
 
     \subcrumbection{Spring}
     \plush[5]{%
         \innoSection{Spring Reactive}
+        Spring supports reactive programming using Project Reactor.\par
+        Servlet Web -> Reactive Web\par
+        JDBC -> R2DBC\par
+        Imperative -> Declarative
+    }
+
+    \plush[5]{%
+        \innoSnippet[\scriptsize]{UserRepository.java}
+        \innoSnippet[\scriptsize]{Users.java}
+    }
+
+    \plush{%
+        \innoSnippet[\scriptsize]{UserRoutes.java}
     }
 \end{document}
