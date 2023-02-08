@@ -1,0 +1,6 @@
+mutation {
+    createPost(authorId: "256", text: "book.tex", title: "Code Ahead") {
+        id,
+        title
+    }
+}
