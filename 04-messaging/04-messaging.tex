@@ -25,25 +25,211 @@
 \usepackage{..//slides}
 \usepackage{..//inno}
 \usepackage[normalem]{ulem}
-\newcommand*\thetitle{MQ, Pub-Sub}
-\newcommand*\thesubtitle{and Messaging}
+\newcommand*\thetitle{Messaging}
+\newcommand*\thesubtitle{in distributed systems}
 \begin{document}
 
     \plush{\defaultInnoTitlePage \innoDisclaimer}
 
     \innoToc
 
-    \plush{\innoChapter[MQ]{Message Queuing}}
+    \plush{\innoChapter[RRvs.PC]{Request-Response vs Producer-Consumer}}
 
-    \subcrumbection{?}
-    \plush[5]{%
+    \plush{%
+        \innoBanner{Request-Response}
+        \innoPic{0.5}{rqrs}
     }
 
-    \plush{\innoChapter[Pub-Sub]{Publish-Subscribe messaging}}
+    \subcrumbection{Availability}
+    \plush[5]{%
+        \innoSection{Availability}
+        What should the client do when the server is not available?
+    }
+
+    \subcrumbection{Performance}
+    \plush[5]{%
+        \innoSection{Performance}
+        What should the client do when the server gets slower?
+    }
+
+    \subcrumbection{Backpressure}
+    \plush[5]{%
+        \innoSection{Backpressure}
+        What should the server do when there is a sudden traffic spike?
+    }
+
+    \subcrumbection{Retry}
+    \plush[5]{%
+        \innoSection{Retry}
+        What should the client do with failed requests?
+    }
+
+    \subcrumbection{Async}
+    \plush{%
+        \innoSection{Asynchronous messaging}
+        \innoPic{0.8}{async}
+    }
+
+    \plush{%
+        \ff{Availability} \ff{->} Keep messages and send them later\par
+        \ff{Performance} \ff{->} Add more servers to parallelize processing\par
+        \ff{Backpressure} \ff{->} Keep draining messages at its own pace\par
+        \ff{Retry} \ff{->} Re-send failed messages\par
+        Also, asynchronous messaging helps to \ff{decouple} client and server.
+    }
 
     \plush{\innoChapter[Patterns]{Messaging Patterns}}
 
-    \plush{\innoChapter[Push]{Push-based technologies}}
+    \subcrumbection{MQ}
+    \plush{%
+        \innoBanner{Message Queuing}
+        \innoPic{0.9}{mq}
+        \url{https://aws.amazon.com/sqs}\par
+        \url{https://www.rabbitmq.com}
+    }
 
-    \plush{\innoChapter[Pull]{Pull-based technologies}}
+    \subcrumbection{Pub-Sub}
+    \plush{%
+        \innoBanner{Publish-Subscribe}
+        \innoPic{0.8}{pub-sub}
+        \url{https://kafka.apache.org}\par
+        \url{https://aws.amazon.com/kinesis}
+    }
+
+    \plush{%
+        \innoPic{1}{arc}
+    }
+
+    \subcrumbection{P\&P}
+    \plush{%
+        \innoBanner{Push model}
+        \innoPic{0.7}{push}
+    }
+
+    \plush{%
+        \innoBanner{Pull model}
+        \innoPic{0.6}{pull}
+    }
+
+    \plush{%
+        \innoBanner{Push vs Pull}
+        \innoPic{0.8}{push-vs-pull}
+    }
+
+    \subcrumbection{Competing}
+    \plush{%
+        \innoBanner{Competing Consumers}
+        \innoPic{0.8}{competing}
+    }
+
+    \subcrumbection{Claim}
+    \plush{%
+        \innoBanner{Claim Check}
+        \innoPic{0.7}{claim}
+    }
+
+    \subcrumbection{Retry}
+    \plush{%
+        \innoBanner{When to retry?}
+        \innoPic{0.8}{when1}
+    }
+
+    \plush{%
+        \innoPic{0.8}{when2}
+    }
+
+    \plush{%
+        \innoBanner{Exponential backoff}
+        \innoPic{0.7}{exp-backoff}
+    }
+
+    \plush{%
+        \innoBanner{Retry at different times}
+        \innoPic{0.7}{jitter}
+    }
+
+    \subcrumbection{Partitioning}
+    \plush{%
+        \innoBanner{Sigle consumer vs Multiple consumers}
+        \innoPic{0.8}{single-vs-mul}\par
+        Multiple consumers break the order of messages
+    }
+
+    \plush{%
+        \innoBanner{Data partitioning}
+        \innoPic{0.8}{partitioning}
+    }
+
+    \plush{%
+        \innoSection{Netflix architecture}
+        \innoPic{0.8}{netflix}
+    }
+
+    \plush{\innoChapter[Internals]{Internals of messaging}}
+
+    \subcrumbection{Ack}
+    \plush{%
+        \innoBanner{Message Acknowledgement}
+        \innoPic{0.8}{ack}
+    }
+
+    \plush{%
+        \innoBanner{Unsafe ack aka ``fire and forget''}
+        \innoPic{0.8}{unsafe}
+    }
+
+    \plush{%
+        \innoBanner{Safe ack}
+        \innoPic{0.7}{safe}\par
+        It is up to the broker what safe really means
+    }
+
+    \plush{%
+        \innoBanner{Failed ack}
+        \innoPic{0.7}{failed-ack}
+    }
+
+    \subcrumbection{Offset}
+    \plush{%
+        \innoBanner{Consumer Offsets - Head delete}
+        \innoPic{0.6}{head}\par
+        RabbitMQ, SQS
+    }
+
+    \plush{%
+        \innoBanner{Incrementing the pointer}
+        \innoPic{0.5}{pointer}\par
+        Kafka, Kinesis
+    }
+
+    \subcrumbection{Polling}
+    \plush{%
+        \innoBanner{Short Polling}
+        \innoPic{0.8}{short}
+    }
+
+    \plush{%
+        \innoBanner{Long Polling}
+        \innoPic{0.8}{long}
+    }
+
+    \subcrumbection{Guarantees}
+    \plush{%
+        \innoBanner{Delivery Guarantees}
+        \ff{at-most-once} -> Messages might be lost\par
+        \ff{exactly-once} -> Messages processed only one time\par
+        \ff{at-least-once} -> Messages migth be processed multiple times\par
+        But failures will happen!
+    }
+
+    \plush{%
+        \innoQuote{vogels}{
+            Failures are a given and everything will eventually fail over time: from routers to hard disks, from operating systems to memory units corrupting TCP packets, from transient errors to permanent failures.
+            This is a given, whether you are using the highest quality hardware or lower cost components.
+        }{ Dr. Werner Vogels}
+    }
+
+    \plush{%
+        Most of the messaging systems you will work with will be configured to provide \ff{at-least-once} delivery guarantee
+    }
 \end{document}
