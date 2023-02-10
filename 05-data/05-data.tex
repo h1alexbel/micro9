@@ -1,0 +1,111 @@
+% MIT License
+%
+% Copyright (c) 2023 Aliaksei Bialiauski
+%
+% Permission is hereby granted, free of charge, to any person obtaining a copy
+% of this software and associated documentation files (the "Software"), to deal
+% in the Software without restriction, including without limitation the rights
+% to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+% copies of the Software, and to permit persons to whom the Software is
+% furnished to do so, subject to the following conditions:
+%
+% The above copyright notice and this permission notice shall be included in all
+% copies or substantial portions of the Software.
+%
+% THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+% IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+% FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+% AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+% LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+% OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+% SOFTWARE.
+
+\documentclass{article}
+\usepackage{..//cover}
+\usepackage{..//slides}
+\usepackage{..//inno}
+\usepackage[normalem]{ulem}
+\newcommand*\thetitle{Data formats}
+\newcommand*\thesubtitle{for distriburted exchange}
+\begin{document}
+
+    \plush{\defaultInnoTitlePage \innoDisclaimer}
+
+    \innoToc
+
+    \plush{%
+        \innoBanner{Serialization \& Deserialization}
+        \small
+        ``.''
+    }
+
+    \plush{%
+        \innoBanner{Metadata}
+    }
+
+    \plush{%
+        \innoBanner{Payload}
+    }
+
+    \plush{\innoChapter[XML]{Extensible Markup Language (XML)}}
+
+    \plush[5]{%
+        \innoBanner{Library in XML}
+        \innoSnippet[\scriptsize]{library.xml}
+    }
+
+    \plush{%
+        \innoBanner{XML Based Formats/Protocols}
+        SOAP, RSS, Atom, SVG, XHTML, HTML5, \\
+        Open Office XML, XMPP, \\
+        SyncML, RDF, XMI, XMIR
+    }
+
+    \plush{%
+        \innoBanner{XML Schema Definition (XSD)}
+        \innoSnippet[\scriptsize]{library.xsd}
+    }
+
+    \plush{\innoChapter[JSON]{JavaScript Object Notation(JSON)}}
+
+    \plush{%
+        \innoBanner{Library in JSON}
+        \innoSnippet[\scriptsize]{library.json}
+    }
+
+    \plush{%
+        \innoBanner{JSON to JavaScript Object and Backwards}
+        \ff{var a = JSON.parse('\{"age": 25\}').age;}\par
+        \ff{JSON.stringify(\{age: 25\});}
+    }
+
+    \plush[5]{%
+        \innoBanner{Schema}
+    }
+
+    \plush{\innoChapter[Other]{Other data formats}}
+
+    \plush[5]{%
+        \innoBanner{Yeat Another Markup Language (YAML)}
+        \innoSnippet[\scriptsize]{pg-service.yml}
+    }
+
+    \plush[5]{%
+        \innoBanner{Comma-separated values (CSV)}
+        \innoSnippet[\scriptsize]{library.csv}
+    }
+
+    \plush{\innoChapter[Binary]{Binary data formats}}
+
+    \subcrumbection{Avro}
+    \plush[5]{%
+    }
+
+    \subcrumbection{Protobuf}
+    \plush[5]{%
+    }
+
+    \subcrumbection{Thrift}
+    \plush[5]{%
+    }
+\end{document}
