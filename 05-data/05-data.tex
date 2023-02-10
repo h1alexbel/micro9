@@ -35,16 +35,11 @@
 
     \plush{%
         \innoBanner{Serialization \& Deserialization}
-        \small
-        ``.''
+        \innoPic{0.9}{serde}
     }
 
     \plush{%
-        \innoBanner{Metadata}
-    }
-
-    \plush{%
-        \innoBanner{Payload}
+        \innoPic{0.9}{encoding}
     }
 
     \plush{\innoChapter[XML]{Extensible Markup Language (XML)}}
@@ -81,9 +76,44 @@
 
     \plush[5]{%
         \innoBanner{Schema}
+        \innoSnippet[\scriptsize]{schema.json}
     }
 
-    \plush{\innoChapter[Other]{Other data formats}}
+    \plush{%
+        \innoBanner{Schema Payload}
+        \innoSnippet[\scriptsize]{payload.json}
+    }
+
+    \plush{%
+        \innoBanner{Schema sharing options}
+        \begin{itemize}
+            \item Through code
+            \item Schema registry
+            \item Send along with the payload
+        \end{itemize}
+    }
+
+    \plush{%
+        \innoSection{Through code}
+        \innoPic{0.8}{throughcode}
+    }
+
+    \plush{%
+        \innoSection{Schema Registry}
+        \innoPic{0.8}{registry}
+    }
+
+    \plush{%
+        \innoSection{Send along with payload}
+        \innoPic{0.8}{withpayload}
+    }
+
+    \plush{%
+        \innoBanner{Schema evolution}
+        \innoPic{0.8}{schema-evolution}
+    }
+
+    \plush{\innoChapter[Other]{YAML, CSV}}
 
     \plush[5]{%
         \innoBanner{Yeat Another Markup Language (YAML)}
@@ -95,17 +125,30 @@
         \innoSnippet[\scriptsize]{library.csv}
     }
 
-    \plush{\innoChapter[Binary]{Binary data formats}}
+    \plush{\innoChapter[Binary]{Binary data formats: Avro, Protobuf, Thrift}}
 
-    \subcrumbection{Avro}
     \plush[5]{%
+        \innoBanner{Avro}
+        Apache Avro is a data serialization system. It uses JSON for defining data types and protocols, and serializes data in a compact binary format
     }
 
-    \subcrumbection{Protobuf}
     \plush[5]{%
+        \innoBanner{Protobuf}
+        \begin{multicols}{2}
+            \innoPic{0.8}{proto1}
+            \par\columnbreak
+            \innoPic{0.8}{proto2}
+        \end{multicols}
     }
 
-    \subcrumbection{Thrift}
     \plush[5]{%
+        \innoBanner{Thrift}
+        \innoPic{0.2}{thrift}\par
+        Thrift provides clean abstractions for data transport, data serialization, and application level processing.
+    }
+
+    \plush{%
+        \innoBanner{Textual vs Binary formats}
+        \innoPic{0.9}{text-vs-bin}
     }
 \end{document}
