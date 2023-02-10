@@ -1,0 +1,20 @@
+{
+  "before": null,
+  "after": {
+    "id": "8e3a8d8e-8443-4efc-8f23-e3eced22740b",
+    "type": "broker",
+    "legalCompanyName": "LukasFilm",
+    "doingBusinessAs": null,
+    "docketMC": null,
+    "status": "active",
+    "preferredId": null,
+    "blockReasonId": null,
+    "businessAddressId": "85a52714-b897-494b-bd6c-50d84728e32a",
+    "billingInfoId": "e40db062-6b99-4fd6-b916-f8d26e7bbf95",
+    "companyId": "06ecb060-1385-419d-91c0-165420773a27",
+    "countryOfOrigin": null,
+    "taxID": null,
+    "created": "2022-07-14T10:27:00.158414Z",
+    "updated": "2022-07-14T10:27:00.191556Z"
+  }
+}

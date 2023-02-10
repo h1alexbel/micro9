@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library>
+  <book id="42">
+    <author>Martin Kleppmann</author>
+    <title>Designing Data-Intensive Applications</title>
+  </book>
+  <book id='43'>
+    <author>Martin Fowler</author>
+    <title>Refactoring</title>
+  </book>
+</library>

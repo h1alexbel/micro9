@@ -1,0 +1,154 @@
+% MIT License
+%
+% Copyright (c) 2023 Aliaksei Bialiauski
+%
+% Permission is hereby granted, free of charge, to any person obtaining a copy
+% of this software and associated documentation files (the "Software"), to deal
+% in the Software without restriction, including without limitation the rights
+% to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+% copies of the Software, and to permit persons to whom the Software is
+% furnished to do so, subject to the following conditions:
+%
+% The above copyright notice and this permission notice shall be included in all
+% copies or substantial portions of the Software.
+%
+% THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+% IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+% FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+% AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+% LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+% OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+% SOFTWARE.
+
+\documentclass{article}
+\usepackage{..//cover}
+\usepackage{..//slides}
+\usepackage{..//inno}
+\usepackage[normalem]{ulem}
+\newcommand*\thetitle{Data formats}
+\newcommand*\thesubtitle{for distriburted exchange}
+\begin{document}
+
+    \plush{\defaultInnoTitlePage \innoDisclaimer}
+
+    \innoToc
+
+    \plush{%
+        \innoBanner{Serialization \& Deserialization}
+        \innoPic{0.9}{serde}
+    }
+
+    \plush{%
+        \innoPic{0.9}{encoding}
+    }
+
+    \plush{\innoChapter[XML]{Extensible Markup Language (XML)}}
+
+    \plush[5]{%
+        \innoBanner{Library in XML}
+        \innoSnippet[\scriptsize]{library.xml}
+    }
+
+    \plush{%
+        \innoBanner{XML Based Formats/Protocols}
+        SOAP, RSS, Atom, SVG, XHTML, HTML5, \\
+        Open Office XML, XMPP, \\
+        SyncML, RDF, XMI, XMIR
+    }
+
+    \plush{%
+        \innoBanner{XML Schema Definition (XSD)}
+        \innoSnippet[\scriptsize]{library.xsd}
+    }
+
+    \plush{\innoChapter[JSON]{JavaScript Object Notation(JSON)}}
+
+    \plush{%
+        \innoBanner{Library in JSON}
+        \innoSnippet[\scriptsize]{library.json}
+    }
+
+    \plush{%
+        \innoBanner{JSON to JavaScript Object and Backwards}
+        \ff{var a = JSON.parse('\{"age": 25\}').age;}\par
+        \ff{JSON.stringify(\{age: 25\});}
+    }
+
+    \plush[5]{%
+        \innoBanner{Schema}
+        \innoSnippet[\scriptsize]{schema.json}
+    }
+
+    \plush{%
+        \innoBanner{Schema Payload}
+        \innoSnippet[\scriptsize]{payload.json}
+    }
+
+    \plush{%
+        \innoBanner{Schema sharing options}
+        \begin{itemize}
+            \item Through code
+            \item Schema registry
+            \item Send along with the payload
+        \end{itemize}
+    }
+
+    \plush{%
+        \innoSection{Through code}
+        \innoPic{0.8}{throughcode}
+    }
+
+    \plush{%
+        \innoSection{Schema Registry}
+        \innoPic{0.8}{registry}
+    }
+
+    \plush{%
+        \innoSection{Send along with payload}
+        \innoPic{0.8}{withpayload}
+    }
+
+    \plush{%
+        \innoBanner{Schema evolution}
+        \innoPic{0.8}{schema-evolution}
+    }
+
+    \plush{\innoChapter[Other]{YAML, CSV}}
+
+    \plush[5]{%
+        \innoBanner{Yeat Another Markup Language (YAML)}
+        \innoSnippet[\scriptsize]{pg-service.yml}
+    }
+
+    \plush[5]{%
+        \innoBanner{Comma-separated values (CSV)}
+        \innoSnippet[\scriptsize]{library.csv}
+    }
+
+    \plush{\innoChapter[Binary]{Binary data formats: Avro, Protobuf, Thrift}}
+
+    \plush[5]{%
+        \innoBanner{Avro}
+        Apache Avro is a data serialization system. It uses JSON for defining data types and protocols, and serializes data in a compact binary format
+    }
+
+    \plush[5]{%
+        \innoBanner{Protobuf}
+        \begin{multicols}{2}
+            \innoPic{0.8}{proto1}
+            \par\columnbreak
+            \innoPic{0.8}{proto2}
+        \end{multicols}
+    }
+
+    \plush[5]{%
+        \innoBanner{Thrift}
+        \innoPic{0.2}{thrift}\par
+        Thrift provides clean abstractions for data transport, data serialization, and application level processing.
+    }
+
+    \plush{%
+        \innoBanner{Textual vs Binary formats}
+        \innoPic{0.9}{text-vs-bin}
+    }
+\end{document}

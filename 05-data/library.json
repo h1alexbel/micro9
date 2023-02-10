@@ -1,0 +1,12 @@
+[
+  {
+    "id": 42,
+    "author": "Martin Kleppmann",
+    "title": "Designing Data-Intensive Applications"
+  },
+  {
+    "id": 43,
+    "author": "Martin Fowler",
+    "title": "Refactoring"
+  }
+]

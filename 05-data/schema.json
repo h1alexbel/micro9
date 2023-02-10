@@ -1,0 +1,21 @@
+{
+  "schema": {
+    "type": "struct",
+    "fields": [
+      {
+        "type": "struct",
+        "fields": [
+          {
+            "type": "string",
+            "optional": false,
+            "name": "io.debezium.data.Uuid",
+            "version": 1,
+            "default": "00000000-0000-0000-0000-000000000000",
+            "field": "id"
+          },
+          {
+            "type": "string",
+            "optional": false,
+            "field": "type"
+          },
+          ...
