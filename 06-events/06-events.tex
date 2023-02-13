@@ -33,25 +33,140 @@
 
     \innoToc
 
-    \plush{\innoChapter[Properties]{Event-Driven Architecture properties}}
-
-    \subcrumbection{Consistency}
-    \plush[5]{%
-    }
-
-    \subcrumbection{Control}
-    \plush[5]{%
-    }
-
-    \subcrumbection{Rollback}
-    \plush[5]{%
-    }
-
-    \subcrumbection{Complexity}
-    \plush[5]{%
-    }
-
     \plush{\innoChapter[Event]{Event sourcing}}
 
+    \plush{%
+        \innoPic{0.8}{eda}
+    }
+
+    \subcrumbection{Def}
+    \plush{%
+        \innoQuote{fowler}{
+            The fundamental idea of Event Sourcing is that of ensuring every change
+            to the state of an application is captured in an event object,
+            and that these event objects are themselves stored in the sequence
+            they were applied for the same lifetime as the application state itself
+        }{Martin Fowler}
+    }
+
+    \plush[5]{%
+        \innoPic{0.5}{eventsourcing}\par
+        ``Event sourcing - is the process of persisting business entities as a sequence of events.''
+    }
+
+    \plush{%
+        \innoPic{0.8}{triangle}
+    }
+
+    \plush{%
+        \innoSection{Event sourcing Example}
+        \innoPic{0.6}{example}
+    }
+
+    \subcrumbection{Aggregate}
+    \plush[5]{%
+        \innoBanner{Aggregate pattern}
+        \innoPic{0.7}{aggregate1}\par
+        ``In Event sourcing an application state represented by simple graph of objects(events) called Aggregate''
+    }
+
+    \plush[5]{%
+        \innoPic{0.7}{aggregate2}
+    }
+
+    \subcrumbection{Projection}
+    \plush[5]{%
+        \innoBanner{Projection pattern}
+        \innoPic{0.6}{projection}\par
+        ``In Event Sourcing, Projections (also known as View Models or Query Models) provide a view of the underlying event-based data model.
+        Often they represent the logic of translating the source write model into the read model.
+        They are used in both read models and write models.''
+    }
+
+    \subcrumbection{Saga}
+    \plush[5]{%
+        \innoBanner{Saga}
+        \innoPic{1}{saga}
+    }
+
     \plush{\innoChapter[CQRS]{Command Query Responsibility Segregation (CQRS)}}
+
+    \plush{%
+        \innoPic{0.9}{cqrs1}
+    }
+
+    \plush{%
+        \innoPic{0.8}{cqrs2}
+    }
+
+    \plush[5]{%
+        \innoBanner{How to synchronize READ and WRITE model?}
+        \begin{itemize}
+            \item Database trigger
+            \item Message queue
+        \end{itemize}
+    }
+
+    \plush{\innoChapter[Properties]{Event-Driven Architecture properties}}
+
+    \subcrumbection{Store}
+    \plush[5]{%
+        \innoBanner{Event Store}
+        \innoPic{0.7}{store}\par
+        ``Event Store contains all events. These events can be fetched to build Event Projection''
+    }
+
+    \subcrumbection{Bus}
+    \plush[5]{%
+        \innoBanner{Event Bus}
+        \innoPic{0.6}{bus}\par
+        ``An event bus is a mediator that transfers a message from a sender to a receiver.
+        In this way, it provides a loosely coupled communication way between objects, services and applications.''
+    }
+
+    \plush[5]{%
+        \url{https://kafka.apache.org}\par
+        \url{https://aws.amazon.com/eventbridge}
+    }
+
+    \plush{%
+        \innoBanner{Event Store vs. Event Bus}
+        \small
+        ``Event Store can be represented by any storage of events,
+        while Event Bus can also spread them out to the related subsribers.''
+    }
+
+    \subcrumbection{Replay}
+    \plush[5]{%
+        \innoBanner{Event Replay}
+        \innoPic{0.7}{replay}
+    }
+
+    \subcrumbection{Drawbacks}
+    \plush{%
+        \innoSection{Less Control than Rq-Rs}
+        \innoPic{0.7}{flow}
+    }
+
+    \plush{%
+        \innoSection{Consistency}
+        \innoPic{0.7}{eventual-consistency}
+    }
+
+    \plush{%
+        \innoSection{Complexity}
+        ``For some situations, this separation can be valuable,
+        but beware that for most systems ES \& CQRS adds risky complexity.''
+    }
+
+    \plush{%
+        \innoSection{Event Sourcing vs. CRUD}
+        \innoPic{0.7}{cost-scope}
+    }
+
+    \subcrumbection{Hex}
+    \plush{%
+        \innoBanner{Hexagonal Architecture}
+        \innoPic{0.8}{hex}
+    }
 \end{document}
