@@ -1,0 +1,80 @@
+% MIT License
+%
+% Copyright (c) 2023 Aliaksei Bialiauski
+%
+% Permission is hereby granted, free of charge, to any person obtaining a copy
+% of this software and associated documentation files (the "Software"), to deal
+% in the Software without restriction, including without limitation the rights
+% to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+% copies of the Software, and to permit persons to whom the Software is
+% furnished to do so, subject to the following conditions:
+%
+% The above copyright notice and this permission notice shall be included in all
+% copies or substantial portions of the Software.
+%
+% THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+% IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+% FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+% AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+% LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+% OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+% SOFTWARE.
+
+\documentclass{article}
+\usepackage{..//cover}
+\usepackage{..//slides}
+\usepackage{..//inno}
+\newcommand*\thetitle{Microservices}
+\newcommand*\thesubtitle{and beyond}
+\begin{document}
+
+    \plush{%
+        \innoBanner{\Huge Microservices}
+        \innoBanner{\Huge and beyond}
+
+        Aliaksei Bialiauski
+
+        9 Lectures\par
+        9 Praccs
+    }
+
+    \plush{%
+        \innoBanner{Lectures}
+        \begin{multicols}{2}
+            \small
+            \begin{enumerate}
+                \item SOA and Microservices
+                \item Microservices Patterns
+                \item IO vs. NIO
+                \item Messaging in distributed systems
+                \item Data formats for distributed exchange
+                \item Event-Driven Architecture and CQRS
+                \item NoSQL vs. SQL % 7
+                \item Caching % 8
+                \item Microservices infrastructure
+            \end{enumerate}
+        \end{multicols}\par
+        \small Each one is \ul{60 minutes} including Q\&A at the end (10 minutes).
+    }
+
+    \plush{%
+        \innoBanner{Praccs}
+        \begin{multicols}{2}
+            \small
+            \begin{enumerate}
+                \item Managing containers with K8s
+                \item Implementing microservices patterns with Spring Cloud and K8s
+                \item RESTful communication between microservices
+                \item Apache Kafka as message broker
+                \par\columnbreak
+                \item Saga example with Kafka and PostgreSQL
+                \item Event Sourcing and CQRS with Kafka
+                \item MongoDB as document storage in microservices % 7
+                \item Example of caching with Redis % 8
+                \item Enabling NIO using Project Reactor
+            \end{enumerate}
+        \end{multicols}\par
+        \small Each one is \ul{90 minutes}\par
+        \small \ul{After each practice} students will be assigned to build custom projects on top of what we discussed.
+    }
+\end{document}
