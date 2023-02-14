@@ -1,0 +1,184 @@
+% MIT License
+%
+% Copyright (c) 2023 Aliaksei Bialiauski
+%
+% Permission is hereby granted, free of charge, to any person obtaining a copy
+% of this software and associated documentation files (the "Software"), to deal
+% in the Software without restriction, including without limitation the rights
+% to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+% copies of the Software, and to permit persons to whom the Software is
+% furnished to do so, subject to the following conditions:
+%
+% The above copyright notice and this permission notice shall be included in all
+% copies or substantial portions of the Software.
+%
+% THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+% IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+% FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+% AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+% LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+% OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+% SOFTWARE.
+
+\documentclass{article}
+\usepackage{..//cover}
+\usepackage{..//slides}
+\usepackage{..//inno}
+\usepackage[normalem]{ulem}
+\newcommand*\thetitle{NoSQL}
+\newcommand*\thesubtitle{vs. SQL}
+\newcommand{\lat}{\selectlanguage{english}}
+\newcommand{\gre}{\selectlanguage{greek}}
+\begin{document}
+
+    \plush{\defaultInnoTitlePage \innoDisclaimer}
+
+    \innoToc
+
+    \plush[5]{%
+        \innoBanner{BASE}
+        \innoPic{0.8}{base}
+    }
+
+    \plush{\innoChapter[Types]{NoSQL Types}}
+
+    \subcrumbection{K-V}
+    \plush[5]{%
+        \innoSection{Key-Value}
+        \innoPic{0.4}{key-value}\par
+        \innoPic{0.5}{dynamo}\par
+        E.g. Redis, AWS DynamoDB
+    }
+
+    \plush{%
+        \innoSection{Single Table Design}
+        \innoPic{0.7}{single}
+    }
+
+    \subcrumbection{Document}
+    \plush[5]{%
+        \innoSection{Document databases}
+        \innoPic{0.5}{document}\par
+        E.g. MongoDB
+    }
+
+    \subcrumbection{Graph}
+    \plush[5]{%
+        \innoSection{Graph}
+        \innoPic{0.5}{graph}\par
+        E.g. Neo4j
+    }
+
+    \subcrumbection{Wide}
+    \plush[5]{%
+        \innoSection{Wide columnar}
+        \innoPic{0.8}{columnar}\par
+        E.g. Apache Cassandra\par
+    }
+
+    \plush{%
+        \innoSection{For time-series data and \gre \textit{OLTP}}
+        \innoPic{0.7}{timeseries}
+    }
+
+    \plush{\innoChapter[Indexes]{Indexes}}
+    \plush[5]{%
+        \innoBanner{B-tree index}
+        Self-balancing tree data structure\par
+        insert, delete, search - \gre \textit{O(log(n))}\par
+        \innoPic{0.8}{btree}
+    }
+
+    \plush[5]{%
+        \innoBanner{Log Structured Merge-tree}
+        \innoPic{1}{lsm}
+    }
+
+    \plush[5]{%
+        \innoBanner{LSM vs. B-tree}
+        \begin{innoWide}{2}
+            \small
+            \innoBanner{LSM}
+            \begin{itemize}
+                \item Google Bigtable
+                \item Apache HBase
+                \item Apache Cassandra
+                \item Influx DB
+            \end{itemize}
+            \par\columnbreak
+            \innoBanner{B-tree}
+            \begin{itemize}
+                \item MySQL
+                \item PostgreSQL
+                \item Apache CouchDB
+                \item DynamoDB
+            \end{itemize}
+        \end{innoWide}\par
+    }
+
+    \plush{%
+        \innoPic{1}{lsm-vs-btree1}
+    }
+
+    \plush{%
+        \innoPic{1}{lsm-vs-btree2}
+    }
+
+    \plush{\innoChapter[Networking]{Database networking}}
+
+    \subcrumbection{Router}
+    \plush[5]{%
+        \innoBanner{Request Routing}
+        \innoPic{0.7}{routing}\par
+        E.g. MySQL, PostgreSQL, MongoDB
+    }
+
+    \subcrumbection{Gossiping}
+    \plush[5]{%
+        \innoBanner{Gossip protocol}
+        \innoPic{0.7}{gossiping}\par
+        E.g. Riak, Cassandra, Dynamo
+    }
+
+    \plush{\innoChapter[Properties]{How to Choose the Right Database?}}
+
+    \plush[3]{%
+        \innoSection{Durability: Can We Loose Data?}
+        \href{https://aws.amazon.com/s3/faqs}{FAQ}: Amazon S3 is designed to provide 99.999999999\% (11 9's) of data durability of objects over a given year. This durability level corresponds to an average annual expected loss of 0.000000001\% of objects. For example, if you store 10,000,000 objects with Amazon S3, you can on average expect to incur a loss of a single object once every 10,000 years.''
+    }
+
+    \plush{%
+        \innoSection{ACID}
+        \nospell{\gre \textbf{\large A}tomicity}: everything or nothing\par
+        \nospell{\gre \textbf{\large C}onsistency}: invariants are in place\par
+        \nospell{\gre \textbf{\large I}solation}: concurrent or sequential\par
+        \nospell{\gre \textbf{\large D}urability}: completed transactions $\rightarrow$ non-volatile memory\par
+    }
+
+    \plush{%
+        \innoSection{Performance}
+        Queries Profiling \& Optimization\par
+        Denormalization\par
+        Caching\par
+    }
+
+    \plush{%
+        \innoSection{Scalability}
+        Vertical vs. Horizontal Scalability\par
+        Sharding vs. Master-Slave Replication\par
+        \innoPic{0.7}{sharding}
+    }
+
+    \plush{%
+        \innoSection{Application Layer Support}
+        Is it open source?\par
+        How mature is the library?\par
+        Is it a thin driver or ORM-ish framework?\par
+        Is the API open?\par
+    }
+
+    \plush{%
+        \innoSection{CAP}
+        \innoPic{0.7}{cap}
+    }
+\end{document}
