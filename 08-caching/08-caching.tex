@@ -36,45 +36,64 @@
 
     \plush{%
         \innoSection{Local Cache}
+        \innoPic{0.7}{local}
     }
 
     \plush{%
         \innoSection{External Cache}
+        \innoPic{0.7}{external}
     }
 
     \plush{\innoChapter[Eviction]{Eviction policies}}
 
     \plush{%
-        \innoSection{LRU}
+        \innoSection{How do we add data to cache?}
+        \innoPic{0.9}{add}
     }
 
     \plush{%
-        \innoSection{LFU}
+        \innoSection{LRU vs. LFU}
+        \small
+        ``Least Recent Used (LRU) means evict entries that haven't been used recently.''\par
+        ``Least Frequently Used (LFU) means evic entries that were used least often.''
     }
 
     \plush{%
         \innoSection{TTL}
+        \innoPic{0.7}{ttl}
     }
 
     \plush{%
-        \innoSection{Active \& Passive expiration}
+        \innoSection{Active vs. Passive expiration}
+        \small
+        ``Active - when entry is accessed.''\par
+        ``Passive - Background thread that runs at regular intervals.''
     }
 
     \plush{%
         \innoSection{Explicitly remove-based eviction}
+        \innoSnippet[\scriptsize]{ExplicitEviction.java}
     }
 
     \plush{\innoChapter[Patterns]{Caching patterns}}
 
     \plush{%
+        \innoSection{Expiration vs. Refresh}
+        \innoPic{0.9}{expiration-vs-refresh}
+    }
+
+    \plush{%
         \innoSection{Refresh-ahead}
+        \innoPic{0.7}{timeline}
     }
 
     \plush{%
         \innoSection{Cache-aside}
+        \innoPic{0.7}{aside}
     }
 
     \plush{%
         \innoSection{Read/Write through Cache}
+        \innoPic{0.9}{through}
     }
 \end{document}
