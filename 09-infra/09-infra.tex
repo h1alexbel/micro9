@@ -1,0 +1,149 @@
+% MIT License
+%
+% Copyright (c) 2023 Aliaksei Bialiauski
+%
+% Permission is hereby granted, free of charge, to any person obtaining a copy
+% of this software and associated documentation files (the "Software"), to deal
+% in the Software without restriction, including without limitation the rights
+% to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+% copies of the Software, and to permit persons to whom the Software is
+% furnished to do so, subject to the following conditions:
+%
+% The above copyright notice and this permission notice shall be included in all
+% copies or substantial portions of the Software.
+%
+% THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+% IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+% FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+% AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+% LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+% OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+% SOFTWARE.
+
+\documentclass{article}
+\usepackage{..//cover}
+\usepackage{..//slides}
+\usepackage{..//inno}
+\usepackage[normalem]{ulem}
+\newcommand*\thetitle{Infrastructure}
+\newcommand*\thesubtitle{behind distributed systems}
+\begin{document}
+
+    \plush{\defaultInnoTitlePage \innoDisclaimer}
+
+    \innoToc
+
+    \plush{\innoChapter[Infrastructure]{Infrastructure components}}
+
+    \subcrumbection{On-Premise}
+    \plush{%
+        \innoSection{Infrastructure}
+        \innoPic{0.7}{infra}
+    }
+
+    \subcrumbection{Server}
+    \plush{%
+        \innoSection{Server components}
+        \begin{itemize}
+            \item CPU(easy to scale)
+            \item Memory
+            \item Disk
+            \item Network(hard to scale)
+        \end{itemize}
+    }
+
+    \subcrumbection{Rack}
+    \plush{%
+        \innoSection{Rack}
+        \innoPic{0.7}{rack}\par
+        Rack - a set of servers.
+    }
+
+    \subcrumbection{DC}
+    \plush{%
+        \innoSection{Data Centers}
+        DC - a set of server racks.\par
+        May become unavailable due to power outage, earthquake, and other disaster.
+    }
+
+    \subcrumbection{AZ}
+    \plush{%
+        \innoSection{Availability Zone}
+        \innoPic{0.9}{az}
+    }
+
+    \subcrumbection{Region}
+    \plush{%
+        \innoSection{Regions}
+        Region - a network of 2 AZs.\par
+        \url{https://awsregion.info}
+    }
+
+    \subcrumbection{VM}
+    \plush{%
+        \innoPic{0.7}{vm}
+    }
+
+    \subcrumbection{Containers}
+    \plush{%
+        \innoSection{Containers}
+        \small
+        ``A container is a lightweight, standalone,
+        executable package of software that includes everything is needed to \ul{run an app}:
+        code, settings, runtime, system tools and system libraries.'' --- GCP docs.
+    }
+
+    \plush{\innoChapter[Cloud]{Design in the Cloud}}
+
+    \subcrumbection{Autoscaling}
+    \plush{%
+        \innoSection{Autoscaling - corner stone of Cloud Computing}
+        \innoPic{0.9}{autoscaling}
+    }
+
+    \subcrumbection{AWS}
+    \plush{%
+        \innoSection{S3}
+        \innoSnippet[\scriptsize]{S3.java}
+    }
+
+    \plush{%
+        \innoSection{EC2}
+        \innoPic{0.7}{ec2}
+    }
+
+    \plush{%
+        \innoSection{SQS}
+        \innoPic{0.8}{sqs}
+    }
+
+    \plush{%
+        \innoSection{RDS}
+        \innoPic{0.45}{rds}
+    }
+
+    \plush{%
+        \innoSection{EKS - Managed Kubernetes Master}
+        \innoPic{0.7}{eks}
+    }
+
+    \plush{%
+        \innoSection{CloudFront}
+        \innoPic{0.8}{cloudfront}
+    }
+
+    \subcrumbection{Serverless}
+    \plush{%
+        \innoSection{Serverless architecture}
+        Serverless architectures are application designs that incorporate third-party ``Backend as a Service'' (BaaS) services, and/or that include custom code run in managed, ephemeral containers on a ``Functions as a Service'' (FaaS) platform.\par
+        Fundamentally, FaaS is about running backend code without managing \ul{your own server systems} or your own long-lived server applications.\par
+        AWS RDS vs. AWS DynamoDB\par
+        \url{https://martinfowler.com/articles/serverless.html}
+    }
+
+    \plush{\innoChapter[?aaS]{PaaS, IaaS, SaaS, EaaS, etc.}}
+    \plush{%
+        \innoSection{PaaS, IaaS, SaaS, EaaS, etc.}
+        \innoPic{0.5}{eaas}
+    }
+\end{document}
